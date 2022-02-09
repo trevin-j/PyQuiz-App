@@ -1,4 +1,4 @@
-package com.numberfive.quizapp;
+package com.numberfive.quizapp.questions;
 
 import android.content.Context;
 

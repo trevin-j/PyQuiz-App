@@ -1,4 +1,4 @@
-package com.numberfive.quizapp;
+package com.numberfive.quizapp.questions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
