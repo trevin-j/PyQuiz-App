@@ -1,0 +1,374 @@
+{
+    "question_data": {
+        "categories": [
+            "SYN",
+            "STR",
+            "BOO",
+            "LIS",
+            "VAR",
+            "DAT"
+        ],
+        "SYN": {
+            "amount": 7
+        },
+        "STR": {
+            "amount": 5
+        },
+        "BOO": {
+            "amount": 4
+        },
+        "LIS": {
+            "amount": 1
+        },
+        "VAR": {
+            "amount": 5
+        },
+        "DAT": {
+            "amount": 5
+        }
+    },
+    "SYN0": {
+        "question": "What is the correct statement to output to the terminal?",
+        "answers": [
+            "print(\"Hello world\")",
+            "print \"Hello world\"",
+            "print Hello world",
+            "Hello world"
+        ],
+        "correct_answers": [
+            0
+        ],
+        "id": "SYN0"
+    },
+    "SYN1": {
+        "question": "Does indentation matter in Python?",
+        "answers": [
+            "Yes",
+            "No"
+        ],
+        "correct_answers": [
+            0
+        ],
+        "id": "SYN1"
+    },
+    "SYN2": {
+        "question": "How do you insert comments in Python?",
+        "answers": [
+            "# This is a comment",
+            "<!-- This is a comment -->",
+            "// This is a comment"
+        ],
+        "correct_answers": [
+            0
+        ],
+        "id": "SYN2"
+    },
+    "SYN3": {
+        "question": "Which of the following is the correct extension for a Python program?",
+        "answers": [
+            ".python",
+            ".py",
+            ".pt",
+            ".pyth"
+        ],
+        "correct_answers": [
+            1
+        ],
+        "id": "SYN3"
+    },
+    "SYN4": {
+        "question": "Does the number of spaces matter for indentation?",
+        "answers": [
+            "Yes",
+            "No, but at least one space must be used"
+        ],
+        "correct_answers": [
+            1
+        ],
+        "id": "SYN4"
+    },
+    "SYN5": {
+        "question": "Which of the following is the correct way to use multi-line comments in Python?",
+        "answers": [
+            "### ###",
+            "\"\"\" \"\"\"",
+            "``` ```",
+            "<!-- -->"
+        ],
+        "correct_answers": [
+            1
+        ],
+        "id": "SYN5"
+    },
+    "SYN6": {
+        "question": "In Python, is it possible to add a comment in the same line as code?",
+        "answers": [
+            "No",
+            "Yes"
+        ],
+        "correct_answers": [
+            1
+        ],
+        "id": "SYN6"
+    },
+    "STR0": {
+        "question": "Using the len() function, what is the length of the following string: \"Hello, World!\"",
+        "answers": [
+            "13",
+            "12",
+            "11",
+            "10"
+        ],
+        "correct_answers": [
+            0
+        ],
+        "id": "STR0"
+    },
+    "STR1": {
+        "question": "What will be displayed in the terminal if you execute the following code: print(\"27\" + \"21\")",
+        "answers": [
+            "\"2721\"",
+            "48",
+            "2721",
+            "\"27\" + \"21\""
+        ],
+        "correct_answers": [
+            2
+        ],
+        "id": "STR1"
+    },
+    "STR2": {
+        "question": "What is the correct way to display \"Hello\" using the following variable: x = \"Hello World!\"",
+        "answers": [
+            "print(x[0:5])",
+            "print(x[:5])",
+            "print(x[:-7])",
+            "All of the above"
+        ],
+        "correct_answers": [
+            3
+        ],
+        "id": "STR2"
+    },
+    "STR3": {
+        "question": "What will strip(\",\") do to a string?",
+        "answers": [
+            "Separate string into a list separated at each \",\"",
+            "Remove all \",\" characters in string",
+            "Adds a \",\" before each word",
+            "Adds a \",\" at the end of each word"
+        ],
+        "correct_answers": [
+            1
+        ],
+        "id": "STR3"
+    },
+    "STR4": {
+        "question": "What is one way to concatenate a number and a string?",
+        "answers": [
+            "\"number: #\" + 5",
+            "\"number: #{}\" + 5",
+            "\"number: #{}\".format(5)",
+            "\"number: #\".format(5)"
+        ],
+        "correct_answers": [
+            2
+        ],
+        "id": "STR4"
+    },
+    "BOO0": {
+        "question": "What is displayed if the following code is run: print(bool(\"Hello\"))",
+        "answers": [
+            "An error message",
+            "Hello",
+            "True",
+            "False"
+        ],
+        "correct_answers": [
+            2
+        ],
+        "id": "BOO0"
+    },
+    "BOO1": {
+        "question": "Which of the following will return True?",
+        "answers": [
+            "bool(None)",
+            "bool(-5)",
+            "bool(\"\")",
+            "bool(False)"
+        ],
+        "correct_answers": [
+            1
+        ],
+        "id": "BOO1"
+    },
+    "BOO2": {
+        "question": "What does the following code display: print(12 > 21)",
+        "answers": [
+            "False",
+            "33",
+            "12 > 21",
+            "True"
+        ],
+        "correct_answers": [
+            0
+        ],
+        "id": "BOO2"
+    },
+    "BOO3": {
+        "question": "What is true about the following code: x = \"200\" ; print(isinstance(x, int))",
+        "answers": [
+            "It will change \"200\" to a number",
+            "It will check if \"200\" is an integer",
+            "it will display 200 to the terminal",
+            "All of the above"
+        ],
+        "correct_answers": [
+            1
+        ],
+        "id": "BOO3"
+    },
+    "LIS0": {
+        "question": "What is this data structure called in Python: structure = ['abcdef', 'ghij', 'klmno', '!*^#%']",
+        "answers": [
+            "Dictionary",
+            "String",
+            "Tuple",
+            "List"
+        ],
+        "correct_answers": [
+            3
+        ],
+        "id": "LIS0"
+    },
+    "VAR0": {
+        "question": "How do you assign multiple variables at once in Python?",
+        "answers": [
+            "x=1, y=5, z=9",
+            "x,y,z = 1,5,9",
+            "x=1, xy=5,9",
+            "None of the above"
+        ],
+        "correct_answers": [
+            1
+        ],
+        "id": "VAR0"
+    },
+    "VAR1": {
+        "question": "How do you print a variable to the screen?",
+        "answers": [
+            "put x",
+            "print x",
+            "print(x)",
+            "put(x)"
+        ],
+        "correct_answers": [
+            2
+        ],
+        "id": "VAR1"
+    },
+    "VAR2": {
+        "question": "Which of these variable names will work?",
+        "answers": [
+            "get_card",
+            "3get_card",
+            "ge!_card",
+            "get-card"
+        ],
+        "correct_answers": [
+            0
+        ],
+        "id": "VAR2"
+    },
+    "VAR3": {
+        "question": "What is the correct way to specify a global variable?",
+        "answers": [
+            "NUMBER",
+            "global number",
+            "GLOBAL number",
+            "glo NUMBER"
+        ],
+        "correct_answers": [
+            1
+        ],
+        "id": "VAR3"
+    },
+    "VAR4": {
+        "question": "When is a variable created in Python?",
+        "answers": [
+            "When it is first used",
+            "It is always there",
+            "Never",
+            "When it is assigned a value"
+        ],
+        "correct_answers": [
+            3
+        ],
+        "id": "VAR4"
+    },
+    "DAT0": {
+        "question": "What data type is x=0?",
+        "answers": [
+            "float",
+            "double",
+            "int",
+            "string"
+        ],
+        "correct_answers": [
+            2
+        ],
+        "id": "DAT0"
+    },
+    "DAT1": {
+        "question": "What data type is x=\"0.0\"?",
+        "answers": [
+            "char",
+            "string",
+            "int",
+            "float"
+        ],
+        "correct_answers": [
+            1
+        ],
+        "id": "DAT1"
+    },
+    "DAT2": {
+        "question": "What data type is x={1:2}?",
+        "answers": [
+            "dict",
+            "tuple",
+            "list",
+            "stack"
+        ],
+        "correct_answers": [
+            0
+        ],
+        "id": "DAT2"
+    },
+    "DAT3": {
+        "question": "What data type is x=[1,2,3,4]?",
+        "answers": [
+            "tuple",
+            "dict",
+            "stack",
+            "list"
+        ],
+        "correct_answers": [
+            3
+        ],
+        "id": "DAT3"
+    },
+    "DAT4": {
+        "question": "What data type is x=0.0?",
+        "answers": [
+            "double",
+            "int",
+            "float",
+            "string"
+        ],
+        "correct_answers": [
+            2
+        ],
+        "id": "DAT4"
+    }
+}
