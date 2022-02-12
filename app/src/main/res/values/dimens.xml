@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="category">120</dimen>
-    <dimen name="button_height">50</dimen>
+    <dimen name="category">120dp</dimen>
+    <dimen name="button_height">50dp</dimen>
 </resources>
