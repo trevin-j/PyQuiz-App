@@ -16,9 +16,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void runActivity(View v) {
+    public void runActivity(View v, String cat) {
         Intent intent = new Intent(this, QuizActivity.class);
-        String catagory = onclick();
+        String catagory = cat;
         intent.putExtra(CATAGORY_KEY, catagory)
     }
 }
