@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void runActivity(View v) {
-        Intent intent = new Intent(this, question.class);
+        Intent intent = new Intent(this, QuizActivity.class);
         String catagory = onclick();
         intent.putExtra(CATAGORY_KEY, catagory)
     }
