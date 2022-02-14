@@ -96,4 +96,31 @@ public class Question {
         }
         return correctAnswersList;
     }
+
+    /**
+     * Get a String representation of the question data for debug purposes.
+     * @return A String representation of the question data for debug purposes.
+     */
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Question: ");
+        stringBuilder.append(question);
+        stringBuilder.append("\nID: ");
+        stringBuilder.append(id);
+        stringBuilder.append("\nAnswers: ");
+
+        ArrayList<String> answers = getAnswers();
+        for (int i = 0; i < answers.size(); i++) {
+            stringBuilder.append("\n" + i + ") ");
+            stringBuilder.append(answers.get(i));
+        }
+
+        stringBuilder.append("\nCorrect answer indices: ");
+        ArrayList<Integer> correctAnswers = getCorrectAnswers();
+        for (int i = 0; i < correctAnswers.size(); i++) {
+            stringBuilder.append(correctAnswers.get(i) + ",");
+        }
+
+        return stringBuilder.toString();
+    }
 }

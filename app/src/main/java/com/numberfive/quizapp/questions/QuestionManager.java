@@ -49,12 +49,12 @@ public class QuestionManager {
 
     /**
      * Get a random question from the given category.
-     * @param category A category to retrieve from.
+     * @param category A category to retrieve from. This may be the first 3 letters of the category, or the full category word.
      * @return A Question object that is from the given category.
      * @throws JSONException If the specified category does not exist in the json file.
      */
     public Question getRandomQuestionByCategory(String category) throws JSONException {
-        String categoryCode = category.substring(0, 2).toUpperCase();
+        String categoryCode = category.substring(0, 3).toUpperCase();
         int amountQuestions = questionsJSON.getJSONObject("question_data").getJSONObject(categoryCode).getInt("amount");
 
         Random rand = new Random();
@@ -70,7 +70,7 @@ public class QuestionManager {
         // Source of some of this code: https://stackoverflow.com/questions/13814503/reading-a-json-file-in-android
         String json;
         try {
-            InputStream is = appContext.getAssets().open("file_name.json");
+            InputStream is = appContext.getAssets().open("questions.json");
 
             int size = is.available();
 
