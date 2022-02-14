@@ -103,7 +103,7 @@ public class Question {
      */
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("\nQuestion: ");
+        stringBuilder.append("Question: ");
         stringBuilder.append(question);
         stringBuilder.append("\nID: ");
         stringBuilder.append(id);
