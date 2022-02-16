@@ -148,6 +148,6 @@ public class Question {
             if (allAnswers.get(index).equals(answer))
                 return true;
         }
-        return false
+        return false;
     }
 }
