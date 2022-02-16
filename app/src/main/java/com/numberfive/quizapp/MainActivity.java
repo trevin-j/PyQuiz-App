@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
     }
 
-    public void runActivity(View v, String cat) {
+    public void runActivity(String cat) {
         Intent intent = new Intent(this, QuizActivity.class);
         String catagory = cat;
         intent.putExtra(CATAGORY_KEY, catagory);
@@ -44,22 +44,22 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_synonym:
-                runActivity(this, "syn");
+                runActivity("syn");
                 break;
             case R.id.button_boolean:
-                runActivity(this, "boo");
+                runActivity("boo");
                 break;
             case R.id.button_variable:
-                runActivity(this, "var");
+                runActivity("var");
                 break;
             case R.id.button_data:
-                runActivity(this, "dat");
+                runActivity("dat");
                 break;
             case R.id.button_list:
-                runActivity(this, "lis");
+                runActivity("lis");
                 break;
             case R.id.button_string:
-                runActivity(this, "str");
+                runActivity("str");
                 break;
         }
     }
