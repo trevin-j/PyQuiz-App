@@ -18,14 +18,14 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
         syn= findViewById(R.id.button);
         boo= findViewById(R.id.button5);
-        var= findViewById(R.id.button7);
+        vary= findViewById(R.id.button7);
         dat= findViewById(R.id.button10);
         lis= findViewById(R.id.button6);
         str= findViewById(R.id.button11);
 
         syn.setOnClickListener(this);
         boo.setOnClickListener(this);
-        var.setOnClickListener(this);
+        vary.setOnClickListener(this);
         dat.setOnClickListener(this);
         lis.setOnClickListener(this);
         str.setOnClickListener(this);
