@@ -10,19 +10,24 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
     public static final String CATAGORY_KEY = "com.numberfive.quizapp.CATAGORY";
 
+    // Setting the names of the buttons
     Button btnSyn, btnBoo, btnVar, btnDat, btnLis, btnStr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnSyn = findViewById(R.id.button_synonym);
+        // Setting the values of the buttons to the button id's in
+        // in the xml file.
+        btnSyn = findViewById(R.id.button_syntax);
         btnBoo= findViewById(R.id.button_boolean);
         btnVar= findViewById(R.id.button_variable);
         btnDat= findViewById(R.id.button_data);
         btnLis= findViewById(R.id.button_list);
         btnStr= findViewById(R.id.button_string);
 
+        // calling the click listener so that  you can know when a button is
+        // pressed.
         btnSyn.setOnClickListener(this);
         btnBoo.setOnClickListener(this);
         btnVar.setOnClickListener(this);
@@ -33,33 +38,34 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
     }
 
-    public void runActivity(View v, String cat) {
+    public void runActivity(String cat) {
         Intent intent = new Intent(this, QuizActivity.class);
         String catagory = cat;
         intent.putExtra(CATAGORY_KEY, catagory);
         startActivity(intent);
     }
-
+    // will see which button is pressed and depending on which one is it will
+    // call the runActivity class and will send it the catagory.
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_synonym:
-                runActivity(this, "syn");
+                runActivity("syn");
                 break;
             case R.id.button_boolean:
-                runActivity(this, "boo");
+                runActivity("boo");
                 break;
             case R.id.button_variable:
-                runActivity(this, "var");
+                runActivity("var");
                 break;
             case R.id.button_data:
-                runActivity(this, "dat");
+                runActivity("dat");
                 break;
             case R.id.button_list:
-                runActivity(this, "lis");
+                runActivity("lis");
                 break;
             case R.id.button_string:
-                runActivity(this, "str");
+                runActivity("str");
                 break;
         }
     }
