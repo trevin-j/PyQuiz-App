@@ -10,25 +10,25 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
     public static final String CATAGORY_KEY = "com.numberfive.quizapp.CATAGORY";
 
-    Button syn, boo, var, dat, lis, str;
+    Button btnSyn, btnBoo, btnVar, btnDat, btnLis, btnStr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        syn= findViewById(R.id.button);
-        boo= findViewById(R.id.button5);
-        vary= findViewById(R.id.button7);
-        dat= findViewById(R.id.button10);
-        lis= findViewById(R.id.button6);
-        str= findViewById(R.id.button11);
+        btnSyn = findViewById(R.id.button_synonym);
+        btnBoo= findViewById(R.id.button_boolean);
+        btnVar= findViewById(R.id.button_variable);
+        btnDat= findViewById(R.id.button_data);
+        btnLis= findViewById(R.id.button_list);
+        btnStr= findViewById(R.id.button_string);
 
-        syn.setOnClickListener(this);
-        boo.setOnClickListener(this);
-        vary.setOnClickListener(this);
-        dat.setOnClickListener(this);
-        lis.setOnClickListener(this);
-        str.setOnClickListener(this);
+        btnSyn.setOnClickListener(this);
+        btnBoo.setOnClickListener(this);
+        btnVar.setOnClickListener(this);
+        btnDat.setOnClickListener(this);
+        btnLis.setOnClickListener(this);
+        btnStr.setOnClickListener(this);
 
 
     }
@@ -42,22 +42,22 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button:
+            case R.id.button_synonym:
                 runActivity(this, "syn");
                 break;
-            case R.id.button5:
+            case R.id.button_boolean:
                 runActivity(this, "boo");
                 break;
-            case R.id.button7:
+            case R.id.button_variable:
                 runActivity(this, "var");
                 break;
-            case R.id.button10:
+            case R.id.button_data:
                 runActivity(this, "dat");
                 break;
-            case R.id.button10:
+            case R.id.button_list:
                 runActivity(this, "lis");
                 break;
-            case R.id.button11:
+            case R.id.button_string:
                 runActivity(this, "str");
                 break;
         }
