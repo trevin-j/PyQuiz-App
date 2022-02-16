@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         Intent intent = new Intent(this, QuizActivity.class);
         String catagory = cat;
         intent.putExtra(CATAGORY_KEY, catagory);
+        startActivity(intent);
     }
 
     @Override
