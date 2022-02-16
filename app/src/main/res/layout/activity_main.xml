@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.312" />
 
     <Button
-        android:id="@+id/button_synonym"
+        android:id="@+id/button_syntax"
         android:layout_width="@dimen/category"
         android:layout_height="@dimen/button_height"
         android:layout_marginStart="64dp"
