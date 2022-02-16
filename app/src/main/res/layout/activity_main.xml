@@ -21,34 +21,34 @@
         app:layout_constraintVertical_bias="0.312" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_syntax"
         android:layout_width="@dimen/category"
         android:layout_height="@dimen/button_height"
         android:layout_marginStart="64dp"
         android:text="@string/ctg_syn"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button11"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_string"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/button_boolean"
         android:layout_width="@dimen/category"
         android:layout_height="@dimen/button_height"
         android:layout_marginStart="64dp"
         android:text="@string/ctg_boo"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button6"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_list"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/button_variable"
         android:layout_width="@dimen/category"
         android:layout_height="@dimen/button_height"
         android:layout_marginStart="64dp"
         android:text="@string/ctg_var"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button10"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_data"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/button_data"
         android:layout_width="@dimen/category"
         android:layout_height="@dimen/button_height"
         android:layout_marginEnd="64dp"
@@ -57,7 +57,7 @@
         tools:layout_editor_absoluteY="434dp" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/button_list"
         android:layout_width="@dimen/category"
         android:layout_height="@dimen/button_height"
         android:layout_marginEnd="64dp"
@@ -66,7 +66,7 @@
         tools:layout_editor_absoluteY="362dp" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/button_string"
         android:layout_width="@dimen/category"
         android:layout_height="@dimen/button_height"
         android:layout_marginEnd="64dp"
