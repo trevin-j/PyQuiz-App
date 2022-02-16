@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Question {
@@ -122,5 +123,31 @@ public class Question {
         }
 
         return stringBuilder.toString();
+    }
+
+    /**
+     * Check if the answer is correct, based on the answer's index.
+     * @param answerIndex The index of the answer to check.
+     * @return True if the index of the answer is correct, else false.
+     */
+    public boolean isCorrect(int answerIndex) {
+        ArrayList<Integer> correctAnswers = getCorrectAnswers();
+        return correctAnswers.contains(answerIndex);
+    }
+
+    /**
+     * Check if the answer is correct, based on the answer as a String.
+     * @param answer The answer as a String.
+     * @return True if the answer is correct, else false.
+     */
+    public boolean isCorrect(String answer) {
+        ArrayList<Integer> correctAnswerIndices = getCorrectAnswers();
+        ArrayList<String> allAnswers = getAnswers();
+        for (Integer index:
+             correctAnswerIndices) {
+            if (allAnswers.get(index).equals(answer))
+                return true;
+        }
+        return false;
     }
 }
