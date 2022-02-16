@@ -10,12 +10,15 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
     public static final String CATAGORY_KEY = "com.numberfive.quizapp.CATAGORY";
 
+    // Setting the names of the buttons
     Button btnSyn, btnBoo, btnVar, btnDat, btnLis, btnStr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Setting the values of the buttons to the button id's in
+        // in the xml file.
         btnSyn = findViewById(R.id.button_syntax);
         btnBoo= findViewById(R.id.button_boolean);
         btnVar= findViewById(R.id.button_variable);
@@ -23,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         btnLis= findViewById(R.id.button_list);
         btnStr= findViewById(R.id.button_string);
 
+        // calling the click listener so that  you can know when a button is
+        // pressed.
         btnSyn.setOnClickListener(this);
         btnBoo.setOnClickListener(this);
         btnVar.setOnClickListener(this);
@@ -39,7 +44,8 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         intent.putExtra(CATAGORY_KEY, catagory);
         startActivity(intent);
     }
-
+    // will see which button is pressed and depending on which one is it will
+    // call the runActivity class and will send it the catagory.
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
