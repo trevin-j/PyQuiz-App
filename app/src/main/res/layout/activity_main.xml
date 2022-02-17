@@ -51,21 +51,21 @@
         android:id="@+id/button_data"
         android:layout_width="@dimen/category"
         android:layout_height="@dimen/button_height"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="64dp"
         android:text="@string/ctg_dat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintTop_toBottomOf="@+id/button_list" />
 
     <Button
         android:id="@+id/button_list"
         android:layout_width="@dimen/category"
         android:layout_height="@dimen/button_height"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="64dp"
         android:text="@string/ctg_lis"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button11" />
+        app:layout_constraintTop_toBottomOf="@+id/button_string" />
 
     <Button
         android:id="@+id/button_string"
