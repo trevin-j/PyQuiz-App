@@ -8,7 +8,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
 
-    public static final String CATAGORY_KEY = "com.numberfive.quizapp.CATAGORY";
+    public static final String CATEGORY_KEY = "com.numberfive.quizapp.CATEGORY";
 
     // Setting the names of the buttons
     Button btnSyn, btnBoo, btnVar, btnDat, btnLis, btnStr;
@@ -40,12 +40,12 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
     public void runActivity(String cat) {
         Intent intent = new Intent(this, QuizActivity.class);
-        String catagory = cat;
-        intent.putExtra(CATAGORY_KEY, catagory);
+        String category = cat;
+        intent.putExtra(CATEGORY_KEY, category);
         startActivity(intent);
     }
     // will see which button is pressed and depending on which one is it will
-    // call the runActivity class and will send it the catagory.
+    // call the runActivity class and will send it the category.
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
