@@ -1,10 +1,11 @@
 package com.numberfive.quizapp.questions;
 
+import androidx.annotation.NonNull;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Question {
@@ -102,6 +103,7 @@ public class Question {
      * Get a String representation of the question data for debug purposes.
      * @return A String representation of the question data for debug purposes.
      */
+    @NonNull
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Question: ");
@@ -112,14 +114,14 @@ public class Question {
 
         ArrayList<String> answers = getAnswers();
         for (int i = 0; i < answers.size(); i++) {
-            stringBuilder.append("\n" + i + ") ");
+            stringBuilder.append("\n").append(i).append(") ");
             stringBuilder.append(answers.get(i));
         }
 
         stringBuilder.append("\nCorrect answer indices: ");
         ArrayList<Integer> correctAnswers = getCorrectAnswers();
         for (int i = 0; i < correctAnswers.size(); i++) {
-            stringBuilder.append(correctAnswers.get(i) + ",");
+            stringBuilder.append(correctAnswers.get(i)).append(",");
         }
 
         return stringBuilder.toString();
