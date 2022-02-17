@@ -76,6 +76,7 @@ public class QuestionManager {
 
             byte[] buffer = new byte[size];
 
+            //noinspection ResultOfMethodCallIgnored
             is.read(buffer);
 
             is.close();
