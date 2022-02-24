@@ -7,4 +7,9 @@
     <string name="ctg_lis">List</string>
     <string name="ctg_var">Variables</string>
     <string name="ctg_dat">Data</string>
+    <string name="question_text">question_text</string>
+    <string name="q1">q1</string>
+    <string name="q2">q2</string>
+    <string name="q3">q3</string>
+    <string name="q4">q4</string>
 </resources>
