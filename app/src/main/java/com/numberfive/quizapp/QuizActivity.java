@@ -19,7 +19,6 @@ import org.json.JSONException;
 
 
 public class QuizActivity extends AppCompatActivity {
-    private static final String TAG = "QuizActivity";
     
     private QuestionManager questionManager;
     Question question;
@@ -76,7 +75,9 @@ public class QuizActivity extends AppCompatActivity {
 
         boolean correct = question.isCorrect(selectedAnswer);
         if (correct) {
-            Log.d(TAG, "checkAnswer: ");
+            System.out.println("correct");
+        } else {
+            System.out.println("incorrect");
         }
     }
 }
