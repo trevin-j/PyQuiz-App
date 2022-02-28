@@ -1,6 +1,8 @@
 package com.numberfive.quizapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.widget.TextView;
@@ -9,7 +11,15 @@ import java.util.ArrayList;
 
 import com.numberfive.quizapp.questions.Question;
 
+import com.numberfive.quizapp.questions.Question;
+import com.numberfive.quizapp.questions.QuestionManager;
+
+import org.json.JSONException;
+
+
 public class QuizActivity extends AppCompatActivity {
+    private QuestionManager questionManager = new QuestionManager();
+    Question question;
 
     private Question QUIZ;
     private ArrayList<String> ANSWERS = QUIZ.getAnswers();
@@ -45,5 +55,19 @@ public class QuizActivity extends AppCompatActivity {
         Answer2.setText(answer2);
         Answer3.setText(answer3);
         Answer4.setText(answer4);
+    }
+
+    private void getQuestion(){
+        Intent intent = getIntent();
+        String category = intent.getStringExtra(MainActivity.CATEGORY_KEY);
+        try{
+            question = questionManager.getRandomQuestionByCategory(category);
+        }
+
+        catch (JSONException e){
+            e.printStackTrace();
+        }
+
+
     }
 }
