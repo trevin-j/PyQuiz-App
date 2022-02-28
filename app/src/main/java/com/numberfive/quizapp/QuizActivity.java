@@ -10,19 +10,13 @@ import android.widget.Button;
 import java.util.ArrayList;
 
 import com.numberfive.quizapp.questions.Question;
-
-import com.numberfive.quizapp.questions.Question;
 import com.numberfive.quizapp.questions.QuestionManager;
 
 import org.json.JSONException;
 
 
 public class QuizActivity extends AppCompatActivity {
-    private QuestionManager questionManager = new QuestionManager();
     Question question;
-
-    private Question QUIZ;
-    private ArrayList<String> ANSWERS = QUIZ.getAnswers();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +24,14 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         //call function;
+        getQuestion();
         ChangeUI();
     }
 
     /** change button and text to reflect question selected to display */
     private void ChangeUI () {
 
+        ArrayList<String> ANSWERS = question.getAnswers();
         // get quiz info
         String answer1 = ANSWERS.get(0);
         String answer2 = ANSWERS.get(1);
@@ -50,7 +46,7 @@ public class QuizActivity extends AppCompatActivity {
         Button Answer4 = findViewById(R.id.button4);
 
         //set text
-        TestQuestion.setText(QUIZ.getQuestion());
+        TestQuestion.setText(question.getQuestion());
         Answer1.setText(answer1);
         Answer2.setText(answer2);
         Answer3.setText(answer3);
@@ -58,6 +54,8 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void getQuestion(){
+        QuestionManager questionManager;
+        questionManager = new QuestionManager(this);
         Intent intent = getIntent();
         String category = intent.getStringExtra(MainActivity.CATEGORY_KEY);
         try{
