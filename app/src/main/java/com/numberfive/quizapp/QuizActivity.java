@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import java.util.Collections;
 import android.view.View;
 import android.widget.Button;
 
@@ -35,13 +36,28 @@ public class QuizActivity extends AppCompatActivity {
 
     /** change button and text to reflect question selected to display */
     private void ChangeUI () {
-
+        // shuffle answers
         ArrayList<String> ANSWERS = question.getAnswers();
-        // get quiz info
-        String answer1 = ANSWERS.get(0);
-        String answer2 = ANSWERS.get(1);
-        String answer3 = ANSWERS.get(2);
-        String answer4 = ANSWERS.get(3);
+        Collections.shuffle(ANSWERS);
+        int length_answer = ANSWERS.size();
+
+        // initialize values
+        String answer1 = " ";
+        String answer2 = " ";
+        String answer3 = " ";
+        String answer4 = " ";
+
+        // set values due to size of array
+        if(length_answer > 1) {
+            answer1 = ANSWERS.get(0);
+            answer2 = ANSWERS.get(1);
+        }
+        if(length_answer > 2) {
+            answer3 = ANSWERS.get(2);
+        }
+        if(length_answer > 3) {
+            answer4 = ANSWERS.get(3);
+        }
 
         // initialize objects in UI
         TextView TestQuestion = findViewById(R.id.textView);
