@@ -7,7 +7,7 @@
     tools:context=".QuizActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="160dp"
@@ -18,59 +18,104 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/q2"
-        android:layout_width="@dimen/qa_btn_width"
-        android:layout_height="@dimen/qa_btn_height"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="32dp"
+        android:id="@+id/btnD"
+        android:layout_width="@dimen/abcd_btn_width"
+        android:layout_height="@dimen/abcd_btn_height"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         android:onClick="checkAnswer"
-        android:text="@string/q2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/q1"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:text="@string/btnD"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnC" />
 
     <Button
+        android:id="@+id/btnC"
+        android:layout_width="@dimen/abcd_btn_width"
+        android:layout_height="@dimen/abcd_btn_height"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="checkAnswer"
+        android:text="@string/btnC"
+        app:layout_constraintBottom_toTopOf="@+id/btnD"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnB" />
+
+    <Button
+        android:id="@+id/btnB"
+        android:layout_width="@dimen/abcd_btn_width"
+        android:layout_height="@dimen/abcd_btn_height"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="checkAnswer"
+        android:text="@string/btnB"
+        app:layout_constraintBottom_toTopOf="@+id/btnC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnA" />
+
+    <Button
+        android:id="@+id/btnA"
+        android:layout_width="@dimen/abcd_btn_width"
+        android:layout_height="@dimen/abcd_btn_height"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="checkAnswer"
+        android:text="@string/btnA"
+        app:layout_constraintBottom_toTopOf="@+id/btnB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question" />
+
+    <TextView
         android:id="@+id/q1"
-        android:layout_width="@dimen/qa_btn_width"
-        android:layout_height="@dimen/qa_btn_height"
+        android:layout_width="242dp"
+        android:layout_height="@dimen/abcd_btn_width"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="16dp"
-        android:onClick="checkAnswer"
-        android:text="@string/q1"
-        app:layout_constraintEnd_toStartOf="@+id/q2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:text="q1"
+        app:layout_constraintBottom_toTopOf="@+id/q2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toEndOf="@+id/btnA"
+        app:layout_constraintTop_toBottomOf="@+id/question" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="@dimen/qa_btn_width"
-        android:layout_height="0dp"
+    <TextView
+        android:id="@+id/q4"
+        android:layout_width="242dp"
+        android:layout_height="@dimen/abcd_btn_width"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="16dp"
-        android:onClick="checkAnswer"
-        android:text="@string/q3"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="q4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnD"
+        app:layout_constraintTop_toBottomOf="@+id/q3" />
+
+    <TextView
+        android:id="@+id/q2"
+        android:layout_width="242dp"
+        android:layout_height="@dimen/abcd_btn_width"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="q2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnB"
         app:layout_constraintTop_toBottomOf="@+id/q1" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="@dimen/qa_btn_width"
-        android:layout_height="@dimen/qa_btn_height"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
+    <TextView
+        android:id="@+id/q3"
+        android:layout_width="242dp"
+        android:layout_height="@dimen/abcd_btn_width"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:onClick="checkAnswer"
-        android:text="@string/q4"
+        android:text="q3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintStart_toEndOf="@+id/btnC"
         app:layout_constraintTop_toBottomOf="@+id/q2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
