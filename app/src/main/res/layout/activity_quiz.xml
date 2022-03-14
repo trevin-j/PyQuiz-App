@@ -26,7 +26,6 @@
         android:text="@string/btnD"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnC" />
-
     <Button
         android:id="@+id/btnC"
         android:layout_width="@dimen/abcd_btn_width"
