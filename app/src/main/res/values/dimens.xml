@@ -3,6 +3,6 @@
     <dimen name="category">120dp</dimen>
     <dimen name="button_height">50dp</dimen>
 
-    <dimen name="qa_btn_width">100dp</dimen>
-    <dimen name="qa_btn_height">50dp</dimen>
+    <dimen name="abcd_btn_width">60dp</dimen>
+    <dimen name="abcd_btn_height">60dp</dimen>
 </resources>
