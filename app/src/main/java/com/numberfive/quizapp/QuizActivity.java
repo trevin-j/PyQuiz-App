@@ -12,7 +12,7 @@ import org.json.JSONException;
 
 
 public class QuizActivity extends AppCompatActivity {
-    private QuestionManager questionManager = new QuestionManager();
+    private QuestionManager questionManager = new QuestionManager(this);
     Question question;
 
     @Override
