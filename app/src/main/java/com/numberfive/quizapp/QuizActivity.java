@@ -4,13 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+
 import java.util.Collections;
 import android.view.View;
 import android.widget.Button;
 
 import android.widget.TextView;
-import android.widget.Button;
+
 import java.util.ArrayList;
 
 import com.numberfive.quizapp.questions.Question;
@@ -60,18 +60,21 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         // initialize objects in UI
-        TextView TestQuestion = findViewById(R.id.textView);
-        Button Answer1 = findViewById(R.id.q1);
-        Button Answer2 = findViewById(R.id.q2);
-        Button Answer3 = findViewById(R.id.button3);
-        Button Answer4 = findViewById(R.id.button4);
+        // Get the question TextView
+        TextView TestQuestion = findViewById(R.id.question);
 
-        //set text
+        // Get the TextView answers
+        TextView answer1Text = findViewById(R.id.q1);
+        TextView answer2Text = findViewById(R.id.q2);
+        TextView answer3Text = findViewById(R.id.q3);
+        TextView answer4Text = findViewById(R.id.q4);
+
+        // Set the text
         TestQuestion.setText(question.getQuestion());
-        Answer1.setText(answer1);
-        Answer2.setText(answer2);
-        Answer3.setText(answer3);
-        Answer4.setText(answer4);
+        answer1Text.setText(answer1);
+        answer2Text.setText(answer2);
+        answer3Text.setText(answer3);
+        answer4Text.setText(answer4);
     }
 
     private void getQuestion(){
@@ -86,10 +89,31 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void checkAnswer(View view) {
-        Button button = (Button) view;
-        String selectedAnswer = button.getText().toString();
+        // Get the buttons
+        Button btn1 = findViewById(R.id.btnA);
+        Button btn2 = findViewById(R.id.btnB);
+        Button btn3 = findViewById(R.id.btnC);
+        Button btn4 = findViewById(R.id.btnD);
 
-        boolean correct = question.isCorrect(selectedAnswer);
+        // Get the TextView answers
+        TextView answer1Text = findViewById(R.id.q1);
+        TextView answer2Text = findViewById(R.id.q2);
+        TextView answer3Text = findViewById(R.id.q3);
+        TextView answer4Text = findViewById(R.id.q4);
+
+        Button button = (Button) view;
+
+        String text = " ";
+        if (button == btn1)
+            text = answer1Text.getText().toString();
+        if (button == btn2)
+            text = answer2Text.getText().toString();
+        if (button == btn3)
+            text = answer3Text.getText().toString();
+        if (button == btn4)
+            text = answer4Text.getText().toString();
+
+        boolean correct = question.isCorrect(text);
         if (correct) {
             System.out.println("correct");
         } else {
