@@ -3,6 +3,7 @@ package com.numberfive.quizapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import java.util.Collections;
@@ -115,9 +116,9 @@ public class QuizActivity extends AppCompatActivity {
 
         boolean correct = question.isCorrect(text);
         if (correct) {
-            System.out.println("correct");
+            button.setBackgroundColor(Color.GREEN);
         } else {
-            System.out.println("incorrect");
+            button.setBackgroundColor((Color.RED));
         }
     }
 }
