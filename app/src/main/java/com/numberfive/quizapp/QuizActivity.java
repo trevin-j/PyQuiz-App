@@ -42,26 +42,21 @@ public class QuizActivity extends AppCompatActivity {
     /** change button and text to reflect question selected to display */
     private void ChangeUI () {
         // shuffle answers
-        ArrayList<String> ANSWERS = question.getAnswers();
-        Collections.shuffle(ANSWERS);
-        int length_answer = ANSWERS.size();
+        ArrayList<String> answerList = question.getAnswers();
+        Collections.shuffle(answerList);
 
         // initialize values
-        String answer1 = " ";
-        String answer2 = " ";
-        String answer3 = " ";
-        String answer4 = " ";
+        String[] answers = new String[4];
 
-        // set values due to size of array
-        if(length_answer > 1) {
-            answer1 = ANSWERS.get(0);
-            answer2 = ANSWERS.get(1);
+        // Set all answers in array to " "
+        for (String answer:
+             answers) {
+            answer = " ";
         }
-        if(length_answer > 2) {
-            answer3 = ANSWERS.get(2);
-        }
-        if(length_answer > 3) {
-            answer4 = ANSWERS.get(3);
+
+        // Set all answers that aren't blank to the proper answer
+        for (int i = 0; i < answerList.size(); i++){
+            answers[i] = answerList.get(i);
         }
 
         // initialize objects in UI
@@ -69,17 +64,19 @@ public class QuizActivity extends AppCompatActivity {
         TextView TestQuestion = findViewById(R.id.question);
 
         // Get the TextView answers
-        TextView answer1Text = findViewById(R.id.q1);
-        TextView answer2Text = findViewById(R.id.q2);
-        TextView answer3Text = findViewById(R.id.q3);
-        TextView answer4Text = findViewById(R.id.q4);
+        TextView[] answerTexts = new TextView[4];
+        answerTexts[0] = findViewById(R.id.q1);
+        answerTexts[1] = findViewById(R.id.q2);
+        answerTexts[2] = findViewById(R.id.q3);
+        answerTexts[3] = findViewById(R.id.q4);
 
         // Set the text
         TestQuestion.setText(question.getQuestion());
-        answer1Text.setText(answer1);
-        answer2Text.setText(answer2);
-        answer3Text.setText(answer3);
-        answer4Text.setText(answer4);
+
+        // Set answers
+        for (int i = 0; i < answers.length; i++) {
+            answerTexts[i].setText(answers[i]);
+        }
     }
 
     private void getQuestion(){
@@ -95,28 +92,27 @@ public class QuizActivity extends AppCompatActivity {
 
     public void checkAnswer(View view) {
         // Get the buttons
-        Button btn1 = findViewById(R.id.btnA);
-        Button btn2 = findViewById(R.id.btnB);
-        Button btn3 = findViewById(R.id.btnC);
-        Button btn4 = findViewById(R.id.btnD);
+        Button[] btns = new Button[4];
+        btns[0] = findViewById(R.id.btnA);
+        btns[1] = findViewById(R.id.btnB);
+        btns[2] = findViewById(R.id.btnC);
+        btns[3] = findViewById(R.id.btnD);
 
         // Get the TextView answers
-        TextView answer1Text = findViewById(R.id.q1);
-        TextView answer2Text = findViewById(R.id.q2);
-        TextView answer3Text = findViewById(R.id.q3);
-        TextView answer4Text = findViewById(R.id.q4);
+        TextView[] answerTexts = new TextView[4];
+        answerTexts[0] = findViewById(R.id.q1);
+        answerTexts[1] = findViewById(R.id.q2);
+        answerTexts[2] = findViewById(R.id.q3);
+        answerTexts[3] = findViewById(R.id.q4);
 
+        // Get the pressed button
         Button button = (Button) view;
 
         String text = " ";
-        if (button == btn1)
-            text = answer1Text.getText().toString();
-        if (button == btn2)
-            text = answer2Text.getText().toString();
-        if (button == btn3)
-            text = answer3Text.getText().toString();
-        if (button == btn4)
-            text = answer4Text.getText().toString();
+        for (int i = 0; i < btns.length; i++) {
+            if (button == btns[i])
+                text = answerTexts[i].getText().toString();
+        }
 
         boolean correct = question.isCorrect(text);
         if (correct) {
