@@ -7,9 +7,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import java.util.Collections;
+
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 
+import android.widget.LinearLayout;
+import android.app.ActionBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -120,5 +124,35 @@ public class QuizActivity extends AppCompatActivity {
         } else {
             button.setBackgroundColor((Color.RED));
         }
+
+        btn1.setEnabled(false);
+        btn2.setEnabled(false);
+        btn3.setEnabled(false);
+        btn4.setEnabled(false);
+
+        createNextButton();
     }
+
+    void createNextButton() {
+        LinearLayout parentLayout = (LinearLayout) findViewById(R.id.nextButton);
+
+        Button buttonNext = new Button(this);
+        int id = 1;
+        buttonNext.setId(id);
+        buttonNext.setText("NEXT");
+
+        LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        buttonParams.setMargins(10,10,10,10);
+        buttonParams.gravity = Gravity.CENTER;
+
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("It Works");
+            }
+        });
+        parentLayout.addView(buttonNext,buttonParams);
+    }
+
+
 }
