@@ -88,28 +88,27 @@ public class QuizActivity extends AppCompatActivity {
 
     public void checkAnswer(View view) {
         // Get the buttons
-        Button btn1 = findViewById(R.id.btnA);
-        Button btn2 = findViewById(R.id.btnB);
-        Button btn3 = findViewById(R.id.btnC);
-        Button btn4 = findViewById(R.id.btnD);
+        Button[] btns = new Button[4];
+        btns[0] = findViewById(R.id.btnA);
+        btns[1] = findViewById(R.id.btnB);
+        btns[2] = findViewById(R.id.btnC);
+        btns[3] = findViewById(R.id.btnD);
 
         // Get the TextView answers
-        TextView answer1Text = findViewById(R.id.q1);
-        TextView answer2Text = findViewById(R.id.q2);
-        TextView answer3Text = findViewById(R.id.q3);
-        TextView answer4Text = findViewById(R.id.q4);
+        TextView[] answerTexts = new TextView[4];
+        answerTexts[0] = findViewById(R.id.q1);
+        answerTexts[1] = findViewById(R.id.q2);
+        answerTexts[2] = findViewById(R.id.q3);
+        answerTexts[3] = findViewById(R.id.q4);
 
+        // Get the pressed button
         Button button = (Button) view;
 
         String text = " ";
-        if (button == btn1)
-            text = answer1Text.getText().toString();
-        if (button == btn2)
-            text = answer2Text.getText().toString();
-        if (button == btn3)
-            text = answer3Text.getText().toString();
-        if (button == btn4)
-            text = answer4Text.getText().toString();
+        for (int i = 0; i < btns.length; i++) {
+            if (button == btns[i])
+                text = answerTexts[i].getText().toString();
+        }
 
         boolean correct = question.isCorrect(text);
         if (correct) {
