@@ -121,10 +121,10 @@ public class QuizActivity extends AppCompatActivity {
             button.setBackgroundColor((Color.RED));
         }
 
-        btn1.setEnabled(false);
-        btn2.setEnabled(false);
-        btn3.setEnabled(false);
-        btn4.setEnabled(false);
+        for (Button btn:
+             btns) {
+            btn.setEnabled(false);
+        }
 
         createNextButton();
     }
