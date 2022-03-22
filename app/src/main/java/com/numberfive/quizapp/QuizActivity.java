@@ -12,6 +12,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 
+import android.widget.Chronometer;
 import android.widget.LinearLayout;
 import android.app.ActionBar;
 import android.widget.TextView;
@@ -25,7 +26,10 @@ import org.json.JSONException;
 
 
 public class QuizActivity extends AppCompatActivity {
-    
+
+    private Chronometer chronometer;
+    private int counter = 10;
+    private boolean isPlaying = true;
     private QuestionManager questionManager;
     Question question;
 
@@ -37,6 +41,25 @@ public class QuizActivity extends AppCompatActivity {
         // call setup methods
         getQuestion();
         ChangeUI();
+
+        // run clock
+        chronometer = findViewById(R.id.chronometer);
+        chronometer.setText("10");
+        chronometer.start();
+        chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+            public void onChronometerTick(Chronometer chronometer) {
+                if (counter < 0 ){
+                    counter = 10;
+                }
+                if(counter > 10){
+                    chronometer.setText("10");
+                }else{
+                    chronometer.setText(counter + "");
+                }
+                counter--;
+            }
+        });
     }
 
     /** change button and text to reflect question selected to display */
@@ -149,6 +172,22 @@ public class QuizActivity extends AppCompatActivity {
         });
         parentLayout.addView(buttonNext,buttonParams);
     }
+
+//            reset_btn.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View view) {
+//
+//            if(isPlaying){
+//                chronometer.stop();
+//                isPlaying = false;
+//            } else{
+//                counter = 10;
+//                chronometer.start();
+//                isPlaying = true;
+//            }
+//        }
+//    });
+
 
 
 }
