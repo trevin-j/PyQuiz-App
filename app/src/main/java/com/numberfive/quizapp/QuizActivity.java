@@ -33,6 +33,9 @@ public class QuizActivity extends AppCompatActivity {
     private QuestionManager questionManager;
     Question question;
 
+    private Button[] btns = new Button[4];
+    private TextView[] answerTexts = new TextView[4];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,18 @@ public class QuizActivity extends AppCompatActivity {
         // call setup methods
         getQuestion();
         ChangeUI();
+
+        // Get the buttons
+        btns[0] = findViewById(R.id.btnA);
+        btns[1] = findViewById(R.id.btnB);
+        btns[2] = findViewById(R.id.btnC);
+        btns[3] = findViewById(R.id.btnD);
+
+        // Get the textview answers
+        answerTexts[0] = findViewById(R.id.q1);
+        answerTexts[1] = findViewById(R.id.q2);
+        answerTexts[2] = findViewById(R.id.q3);
+        answerTexts[3] = findViewById(R.id.q4);
 
         // run clock
         chronometer = findViewById(R.id.chronometer);
@@ -114,20 +129,6 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void checkAnswer(View view) {
-        // Get the buttons
-        Button[] btns = new Button[4];
-        btns[0] = findViewById(R.id.btnA);
-        btns[1] = findViewById(R.id.btnB);
-        btns[2] = findViewById(R.id.btnC);
-        btns[3] = findViewById(R.id.btnD);
-
-        // Get the TextView answers
-        TextView[] answerTexts = new TextView[4];
-        answerTexts[0] = findViewById(R.id.q1);
-        answerTexts[1] = findViewById(R.id.q2);
-        answerTexts[2] = findViewById(R.id.q3);
-        answerTexts[3] = findViewById(R.id.q4);
-
         // Get the pressed button
         Button button = (Button) view;
 
@@ -144,12 +145,16 @@ public class QuizActivity extends AppCompatActivity {
             button.setBackgroundColor((Color.RED));
         }
 
-        for (Button btn:
-             btns) {
-            btn.setEnabled(false);
-        }
+        setAnswersEnabled(false);
 
         createNextButton();
+    }
+
+    private void setAnswersEnabled(boolean enabled){
+        for (Button btn:
+                btns) {
+            btn.setEnabled(enabled);
+        }
     }
 
     void createNextButton() {
