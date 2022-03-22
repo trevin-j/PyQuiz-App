@@ -31,7 +31,9 @@ public class QuizActivity extends AppCompatActivity {
     private int counter = 10;
     private boolean isPlaying = true;
     private QuestionManager questionManager;
-    Question question;
+    private Question question;
+    // Keep the category persistent
+    private String category;
 
     private Button[] btns = new Button[4];
     private TextView[] answerTexts = new TextView[4];
@@ -41,9 +43,12 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        // call setup methods
-        getQuestion();
-        ChangeUI();
+        // Initialize the questionManager. This will be persistent while the activity is enabled.
+        questionManager = new QuestionManager(this);
+
+        // Set the category to what the user picked
+        Intent intent = getIntent();
+        category = intent.getStringExtra(MainActivity.CATEGORY_KEY);
 
         // Get the buttons
         btns[0] = findViewById(R.id.btnA);
@@ -57,8 +62,19 @@ public class QuizActivity extends AppCompatActivity {
         answerTexts[2] = findViewById(R.id.q3);
         answerTexts[3] = findViewById(R.id.q4);
 
-        // run clock
+        // Get chronometer ui reference
         chronometer = findViewById(R.id.chronometer);
+
+        // We have already called the necessary stuff to set up for the first time,
+        // now call the reset method to set up the rest of the stuff which will not be persistent the whole time
+        resetQuestion();
+    }
+
+    private void resetQuestion() {
+        setRandomQuestion();
+        ChangeUI();
+
+        // run clock
         chronometer.setText("10");
         chronometer.start();
         chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
@@ -117,13 +133,15 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
-    private void getQuestion(){
-        questionManager = new QuestionManager(this);
-        Intent intent = getIntent();
-        String category = intent.getStringExtra(MainActivity.CATEGORY_KEY);
+    /**
+     * Set the question to a new random question.
+     * Should be called when resetting or when activity is first enabled
+     */
+    private void setRandomQuestion(){
         try{
             question = questionManager.getRandomQuestionByCategory(category);
         } catch (JSONException e) {
+            // Something unexpected happened and no idea what to do if this happens yet
             e.printStackTrace();
         }
     }
