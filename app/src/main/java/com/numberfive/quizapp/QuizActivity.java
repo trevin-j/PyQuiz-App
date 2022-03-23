@@ -160,7 +160,7 @@ public class QuizActivity extends AppCompatActivity {
         if (correct) {
             button.setBackgroundColor(Color.GREEN);
         } else {
-            button.setBackgroundColor((Color.RED));
+            button.setBackgroundColor(Color.RED);
         }
 
         setAnswersEnabled(false);
