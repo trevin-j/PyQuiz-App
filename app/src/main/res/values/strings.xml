@@ -12,4 +12,5 @@
     <string name="btnB">B</string>
     <string name="btnC">C</string>
     <string name="btnD">D</string>
+    <string name="button_next">NEXT</string>
 </resources>

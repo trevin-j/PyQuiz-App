@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import java.util.Collections;
@@ -35,6 +36,8 @@ public class QuizActivity extends AppCompatActivity {
     // Keep the category persistent
     private String category;
 
+    private int score;
+
     private Button[] btns = new Button[4];
     private TextView[] answerTexts = new TextView[4];
 
@@ -45,6 +48,8 @@ public class QuizActivity extends AppCompatActivity {
 
         // Initialize the questionManager. This will be persistent while the activity is enabled.
         questionManager = new QuestionManager(this);
+
+        score = 0;
 
         // Set the category to what the user picked
         Intent intent = getIntent();
@@ -74,7 +79,16 @@ public class QuizActivity extends AppCompatActivity {
         setRandomQuestion();
         ChangeUI();
 
+        // Update the score counter
+        ((TextView) findViewById(R.id.scoreView)).setText("Score: " + score);
+
+        setAnswersEnabled(true);
+
+        // Hide next button
+        findViewById(R.id.buttonNext).setVisibility(View.GONE);
+
         // run clock
+        counter = 10;
         chronometer.setText("10");
         chronometer.start();
         chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
@@ -147,6 +161,12 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void checkAnswer(View view) {
+        // Disable buttons
+        setAnswersEnabled(false);
+
+        // Stop the timer
+        chronometer.stop();
+
         // Get the pressed button
         Button button = (Button) view;
 
@@ -159,58 +179,35 @@ public class QuizActivity extends AppCompatActivity {
         boolean correct = question.isCorrect(text);
         if (correct) {
             button.setBackgroundColor(Color.GREEN);
+
+            // Score adds 10 if right, and 10 for each second left
+            score += 10 * (counter + 2);
         } else {
             button.setBackgroundColor(Color.RED);
         }
 
-        setAnswersEnabled(false);
-
-        createNextButton();
+        // Set the next button to be visible
+        Button nextButton = findViewById(R.id.buttonNext);
+        nextButton.setVisibility(View.VISIBLE);
     }
 
     private void setAnswersEnabled(boolean enabled){
         for (Button btn:
                 btns) {
             btn.setEnabled(enabled);
+            if (enabled)
+                btn.setBackgroundColor(Color.rgb(98, 0, 238));
+            else
+                btn.setBackgroundColor(Color.LTGRAY);
         }
     }
 
-    void createNextButton() {
-        LinearLayout parentLayout = (LinearLayout) findViewById(R.id.nextButton);
-
-        Button buttonNext = new Button(this);
-        int id = 1;
-        buttonNext.setId(id);
-        buttonNext.setText("NEXT");
-
-        LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
-        buttonParams.setMargins(10,10,10,10);
-        buttonParams.gravity = Gravity.CENTER;
-
-        buttonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.out.println("It Works");
-            }
-        });
-        parentLayout.addView(buttonNext,buttonParams);
+    /**
+     * Called by the Next button when clicked. Resets to new question while keeping score persistent.
+     * @param view
+     */
+    public void onNext(View view) {
+        resetQuestion();
     }
-
-//            reset_btn.setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View view) {
-//
-//            if(isPlaying){
-//                chronometer.stop();
-//                isPlaying = false;
-//            } else{
-//                counter = 10;
-//                chronometer.start();
-//                isPlaying = true;
-//            }
-//        }
-//    });
-
-
 
 }
