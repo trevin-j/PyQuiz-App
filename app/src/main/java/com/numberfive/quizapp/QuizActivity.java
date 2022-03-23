@@ -95,7 +95,11 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onChronometerTick(Chronometer chronometer) {
                 if (counter < 0 ){
-                    counter = 10;
+                    Button nextButton = findViewById(R.id.buttonNext);
+                    nextButton.setVisibility(View.VISIBLE);
+                    chronometer.stop();
+                    counter = 0;
+                    setAnswersEnabled(false);
                 }
                 if(counter > 10){
                     chronometer.setText("10");
