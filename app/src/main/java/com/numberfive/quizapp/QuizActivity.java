@@ -153,7 +153,7 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         // Hide extra buttons
-        for (int i = 3; i > answers.length; i++) {
+        for (int i = 3; i > answerList.size() - 1; i--) {
             btns[i].setVisibility(View.GONE);
         }
     }
