@@ -95,6 +95,12 @@ public class QuizActivity extends AppCompatActivity {
 
     /** change button and text to reflect question selected to display */
     private void ChangeUI () {
+        // Unhide all buttons in case some were invisible
+        for (Button btn:
+             btns) {
+            btn.setVisibility(View.VISIBLE);
+        }
+
         // shuffle answers
         ArrayList<String> answerList = question.getAnswers();
         Collections.shuffle(answerList);
@@ -130,6 +136,11 @@ public class QuizActivity extends AppCompatActivity {
         // Set answers
         for (int i = 0; i < answers.length; i++) {
             answerTexts[i].setText(answers[i]);
+        }
+
+        // Hide extra buttons
+        for (int i = 3; i > answers.length; i++) {
+            btns[i].setVisibility(View.GONE);
         }
     }
 
