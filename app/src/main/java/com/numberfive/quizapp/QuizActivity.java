@@ -196,7 +196,9 @@ public class QuizActivity extends AppCompatActivity {
             button.setBackgroundColor(Color.GREEN);
 
             // Score adds 10 if right, and 10 for each second left
-            score += 10 * (counter + 2);
+            score += 10 + (counter + 1);
+            // Update the score counter
+            ((TextView) findViewById(R.id.scoreView)).setText("Score: " + score);
         } else {
             button.setBackgroundColor(Color.RED);
         }
