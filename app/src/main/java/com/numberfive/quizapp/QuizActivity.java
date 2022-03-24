@@ -19,6 +19,7 @@ import android.app.ActionBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import com.numberfive.quizapp.questions.Question;
 import com.numberfive.quizapp.questions.QuestionManager;
@@ -27,6 +28,11 @@ import org.json.JSONException;
 
 
 public class QuizActivity extends AppCompatActivity {
+    // Keep track of current available categories.
+    private final String[] CATEGORIES = {"syn", "str", "boo", "lis", "var", "dat"};
+
+    // Random object for picking random category if necessary
+    private Random random = new Random();
 
     private Chronometer chronometer;
     private int counter = 10;
@@ -167,8 +173,18 @@ public class QuizActivity extends AppCompatActivity {
      * Should be called when resetting or when activity is first enabled
      */
     private void setRandomQuestion(){
-        try{
-            question = questionManager.getRandomQuestionByCategory(category);
+        String currentCategory = category;
+
+        if (category.equals("ran")) {
+            // If user decides random
+            // Get random index to pick from categories array
+            int randomIndex = random.nextInt(CATEGORIES.length);
+            currentCategory = CATEGORIES[randomIndex];
+        }
+
+        // Get the random question by category
+        try {
+            question = questionManager.getRandomQuestionByCategory(currentCategory);
         } catch (JSONException e) {
             // Something unexpected happened and no idea what to do if this happens yet
             e.printStackTrace();
