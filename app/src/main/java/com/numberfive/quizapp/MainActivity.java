@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     public static final String CATEGORY_KEY = "com.numberfive.quizapp.CATEGORY";
 
     // Setting the names of the buttons
-    Button btnSyn, btnBoo, btnVar, btnDat, btnLis, btnStr;
+    Button btnSyn, btnBoo, btnVar, btnDat, btnLis, btnStr, btnRan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         btnDat= findViewById(R.id.button_data);
         btnLis= findViewById(R.id.button_list);
         btnStr= findViewById(R.id.button_string);
+        btnRan = findViewById(R.id.button_random);
 
         // calling the click listener so that  you can know when a button is
         // pressed.
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         btnDat.setOnClickListener(this);
         btnLis.setOnClickListener(this);
         btnStr.setOnClickListener(this);
+        btnRan.setOnClickListener(this);
 
 
     }
@@ -66,6 +68,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                 break;
             case R.id.button_string:
                 runActivity("str");
+                break;
+            case R.id.button_random:
+                runActivity("ran");
                 break;
         }
     }
