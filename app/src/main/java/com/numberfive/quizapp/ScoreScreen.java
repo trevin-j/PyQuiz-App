@@ -22,6 +22,6 @@ public class ScoreScreen extends AppCompatActivity {
 
         scoreField = findViewById(R.id.score);
 
-        scoreField.setText(score);
+        scoreField.setText(Integer.toString(score));
     }
 }
