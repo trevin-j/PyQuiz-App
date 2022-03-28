@@ -32,9 +32,8 @@ public class ScoreScreen extends AppCompatActivity {
 //        exit.setOnClickListener(this);
     }
 
-    private void returnMain() {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
+    public void returnMain(View view) {
+        navigateUpTo(new Intent(getBaseContext(), MainActivity.class));
     }
 
 }
