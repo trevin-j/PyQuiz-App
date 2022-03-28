@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">PyQuiz App</string>
     <string name="Title">Python Quiz App</string>
-    <string name="ctg_syn">Synonym</string>
+    <string name="ctg_syn">Syntax</string>
     <string name="ctg_str">String</string>
     <string name="ctg_boo">Boolean</string>
     <string name="ctg_lis">List</string>
     <string name="ctg_var">Variables</string>
     <string name="ctg_dat">Data</string>
+    <string name="question_text">question_text</string>
+    <string name="btnA">A</string>
+    <string name="btnB">B</string>
+    <string name="btnC">C</string>
+    <string name="btnD">D</string>
+    <string name="button_next">NEXT</string>
+    <string name="button_random">RANDOM</string>
 </resources>

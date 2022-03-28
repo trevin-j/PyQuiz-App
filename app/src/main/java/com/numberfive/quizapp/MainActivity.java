@@ -8,10 +8,10 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
 
-    public static final String CATAGORY_KEY = "com.numberfive.quizapp.CATAGORY";
+    public static final String CATEGORY_KEY = "com.numberfive.quizapp.CATEGORY";
 
     // Setting the names of the buttons
-    Button btnSyn, btnBoo, btnVar, btnDat, btnLis, btnStr;
+    Button btnSyn, btnBoo, btnVar, btnDat, btnLis, btnStr, btnRan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         btnDat= findViewById(R.id.button_data);
         btnLis= findViewById(R.id.button_list);
         btnStr= findViewById(R.id.button_string);
+        btnRan = findViewById(R.id.button_random);
 
         // calling the click listener so that  you can know when a button is
         // pressed.
@@ -34,22 +35,23 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         btnDat.setOnClickListener(this);
         btnLis.setOnClickListener(this);
         btnStr.setOnClickListener(this);
+        btnRan.setOnClickListener(this);
 
 
     }
 
     public void runActivity(String cat) {
         Intent intent = new Intent(this, QuizActivity.class);
-        String catagory = cat;
-        intent.putExtra(CATAGORY_KEY, catagory);
+        String category = cat;
+        intent.putExtra(CATEGORY_KEY, category);
         startActivity(intent);
     }
     // will see which button is pressed and depending on which one is it will
-    // call the runActivity class and will send it the catagory.
+    // call the runActivity class and will send it the category.
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button_synonym:
+            case R.id.button_syntax:
                 runActivity("syn");
                 break;
             case R.id.button_boolean:
@@ -66,6 +68,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                 break;
             case R.id.button_string:
                 runActivity("str");
+                break;
+            case R.id.button_random:
+                runActivity("ran");
                 break;
         }
     }
