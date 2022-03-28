@@ -31,6 +31,9 @@ public class QuizActivity extends AppCompatActivity {
     // Keep track of current available categories.
     private final String[] CATEGORIES = {"syn", "str", "boo", "lis", "var", "dat"};
 
+    // Intent extra key for score
+    public final static String SCORE_KEY = "com.numberfive.quizapp.SCORE";
+
     // Random object for picking random category if necessary
     private Random random = new Random();
 
@@ -46,6 +49,9 @@ public class QuizActivity extends AppCompatActivity {
 
     private Button[] btns = new Button[4];
     private TextView[] answerTexts = new TextView[4];
+
+    // Keep track of what question this is. After 5 questions, display score etc. and allow user to return to menu.
+    private int questionNum = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -240,7 +246,19 @@ public class QuizActivity extends AppCompatActivity {
      * @param view
      */
     public void onNext(View view) {
-        resetQuestion();
+        if (questionNum >= 5) {
+            // After question #5, launch the show score activity and be done with the current quiz
+            // Create intent
+            Intent intent = new Intent(this, ScoreScreen.class);
+            intent.putExtra(SCORE_KEY, score);
+            startActivity(intent);
+
+            // Stop the current activity
+            finish();
+        } else {
+            resetQuestion();
+            questionNum++;
+        }
     }
 
 }
