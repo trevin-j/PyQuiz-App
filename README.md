@@ -19,6 +19,7 @@ Michael Hampton
 Trevin Jones
 Masa Takechi
 Michael Fisher
+Samson Idoko
 
 # Useful Websites
 
